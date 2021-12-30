@@ -23,7 +23,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--use-cuda', action='store_true', default=True,
                         help='Use NVIDIA GPU acceleration')
-    parser.add_argument('--image-path', type=str, default='/media/lcx/Data/project_ubuntu/pytorch-grad-cam-master/heavy_test_17.jpg',
+    parser.add_argument('--image-path', type=str, default='dataset_old/img.jpg',
                         help='Input image path')
     parser.add_argument('--aug_smooth', action='store_true',
                         help='Apply test time augmentation to smooth the CAM')
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     cam_gb = deprocess_image(cam_mask * gb)
     gb = deprocess_image(gb)
 
-    cv2.imwrite(f'output\\pic6_res_{args.method}.jpg', cam_image)
-    cv2.imwrite(f'output\\{args.method}_gb.jpg', gb)
-    cv2.imwrite(f'output\\{args.method}_cam_gb.jpg', cam_gb)
+    cv2.imwrite(f'output/pic6_res_{args.method}.jpg', cam_image)
+    cv2.imwrite(f'output/{args.method}_gb.jpg', gb)
+    cv2.imwrite(f'output/{args.method}_cam_gb.jpg', cam_gb)
     print('over')
